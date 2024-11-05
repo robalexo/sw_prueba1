@@ -23,7 +23,7 @@
         width: 100vw;
     }
         </style>
-        <title>Geovisor UV</title>
+        <title>UNIVALLE</title>
     </head>
     <body>
         <div id="map">
@@ -49,6 +49,14 @@
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
         document.getElementsByClassName('leaflet-control-measure-toggle')[0]
         .innerHTML = '';
         document.getElementsByClassName('leaflet-control-measure-toggle')[0]
@@ -113,7 +121,7 @@
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 1,
                 fillColor: 'rgba(190,178,151,1.0)',
                 interactive: true,
             }
@@ -149,12 +157,12 @@
         function style_comunas_2_0() {
             return {
                 pane: 'pane_comunas_2',
-                opacity: 0.5,
-                color: 'rgba(0,255,0,1.0)',
+                opacity: 1,
+                color: 'rgba(255,0,0,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 4.0, 
+                weight: 2.0, 
                 interactive: true,
             }
         }
